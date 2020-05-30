@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+
+
+<div class="hero" style="background-image: url({% static 'images/lead.jpg' %}); text-align:right;">
+    <div class="hero-inner">
+        <div class="inner">
+            <h1><span class="border border-top border-bottom">sweetie</span></h1>
+            <div class="hero-line-one"></div>
+            <div class="hero-line-two"><span class="border border-bottom"><a href="{% url 'about' %}" style="color:#FFF;">by Love</a></span></div>
+        </div>
+
+        <a class="more-arrow" href="#content"><i class="fa fa-chevron-down"></i><span>Scroll Down</span></a>
+
+    </div>
+</div>
+
+
+<div class="home-sticky" id="content">
+
+    <h2 class="home-sticky-title">my fave moments</h2>
+
+        <div class="featured">
+        {% for obj in featured %}
+
+            <div class="sticky-inner">
+
+                <aside class="home-sticky-post post has-post-thumbnail sticky">
+
+                  <div class="obj">
+
+
+          		    <span class="post-image">
+          				<a href="{% url 'articles:detail' slug=obj.slug %}">
+          				<img width="502" height="502" src="{{ obj.image_1.url }}"
+                             class="attachment-sticky size-sticky" alt=""/>
+          				</a>
+          		    </span>
+
+                    <div class="inner">
+                        <h3 class="entry-title">
+                            <a href="{% url 'articles:detail' slug=obj.slug %}">{{ obj.title }}</a>
+                        </h3>
+
+                        <ul class="meta top">
+                            <li class="time">
+                                <a href="{% url 'articles:detail' slug=obj.slug %}">
+                                    <time class="post-date updated" datetime="2015-02-02">{{ obj.date }}</time>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    </div>
+                </aside>
+            </div>
+
+        {% endfor %}
+        </div>
+
+
+<div class="wrap full-wrap">
+    <div class="main-wrap">
+        <section class="main main-archive">
+          {% for article in blog_list %}
+            <div class="loop">
+
+                <article class="post format-gallery post_format-post-format-gallery">
+
+
+                    <a href="{% url 'articles:detail' slug=article.slug %}"
+                       title="Running through Chicago">
+                        <div class="part-gallery">
+                            <div class="flexslider">
+                                <ul class="slides">
+
+                                    <li><span class="post-image"><img src="{{ article.image_1.url }}"
+                                                                      alt="Run-3"/></span></li>
+                                    <li><span class="post-image"><img src="{{ article.image_2.url }}"
+                                                                      alt="Run-1"/></span></li>
+                                    <li><span class="post-image"><img src="{{ article.image_3.url }}"
+                                                                      alt="Run-2"/></span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </a>
+
+                    <div class="inner">
+
+                        <h2 class="entry-title">
+                            <a href="{% url 'articles:detail' slug=article.slug %}"
+                               title="Running through Chicago">
+                                {{ article.title }} </a>
+                        </h2>
+                        <ul class="meta top">
+                            <li class="time">
+                                <a href="{% url 'articles:detail' slug=article.slug %}"
+                                   title="Running through Chicago">
+                                    <time class="post-date updated" datetime="2015-02-01">{{ article.date }}</time>
+                                </a></li>
+
+                            <li class="comments post-tags">
+                                <a href="{% url 'articles:detail' slug=article.slug %}">{{ article.comment_count }} Comments</a></li>
+
+                            <li class="author-m post-tags">
+                                By <span class="vcard author post-author"><span class="fn"><a
+                                    href="{% url 'about' %}"
+                                    title="Posts by {{ article.author }}" rel="author">{{ article.author }}</a></span></span>
+                            </li>
+
+                        </ul>
+                        <div class="post-content">
+                            <p>{{ article.content }}</p>
+                            <blockquote><p>“{{ article.body }}”<cite>{{ article.author }}</cite></p></blockquote>
+                            <p>Nullam ac odio non ligula semper auctor. Fusce semper risus eu magna placerat pulvinar.
+                                Nullam ac odio non ligula semper auctor. Aenean at dui dui, non scelerisque nisi. Morbi
+                                ullamcorper dapibus nisl, ullamcorper fringilla eros pulvinar et. <a
+                                        href="{% url 'articles:detail' slug=article.slug %}"
+                                        class="more-link">Read More</a></p>
+                        </div>
+
+
+                        <ul class="meta bottom">
+
+
+                            <li class="cat post-tags">Saved: <a
+                                    href="#">Blog</a>,
+                                <a href="#">Fitness</a>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+                </article>
+
+            </div>
+            {% endfor %}
+        </section>
+    </div><!-- /main-wrap -->
+</div><!-- /wrap -->
+
+</div>
+
+<div id="topsearch">
+    <!-- <div class="table">
+        <div class="table-cell">
+            <form role="search" method="get" class="searchform" action="{% url 'home' %}">
+                <div>
+                    <input type="text" value="" name="s" class="s" placeholder="Type and hit enter"/>
+                    <input type="submit" class="searchsubmit" value="Search"/>
+                </div>
+            </form>
+        </div>
+    </div> -->
+    <a href="#topsearch" class="search-trigger"><i class="fa fa-times"></i></a>
+</div>
+{% endblock content %}

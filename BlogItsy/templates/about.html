@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<div class="wrap full-wrap">
+    <div class="main-wrap">
+
+        <section class="main">
+            <article class="post page">
+              {% for ath in author %}
+                <div class="inner">
+                    <h1>About me</h1>
+                    <div class="post-content">
+                        <p><img class="size-full alignleft rounded" src="{{ ath.profile_picture.url }}" alt="about-clare" width="300" height="300">
+                          "{{ ath.aboutme }}"</p>
+
+                            <p>
+                                <a target="_self" class="social twitter black" href="#"> Twitter </a>
+                                <a target="_self" class="social facebook black" href="#"> Facebook&nbsp;</a>
+                                <a target="_self" class="social instagram black" href="#">&nbsp;instagram&nbsp;</a>
+                                <a target="_self" class="social flickr black" href="#"> flickr&nbsp;</a>
+                            </p>
+
+                    </div>
+                </div>
+              {% endfor %}
+            </article>
+            <div class="border"></div>
+        </section>
+    </div><!-- /main-wrap -->
+</div><!-- /wrap -->
+{% endblock content %}

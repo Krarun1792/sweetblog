@@ -1,0 +1,71 @@
+
+
+<header class="header">
+
+    <div class="header-wrap">
+
+        <div class="logo plain logo-left">
+            <div class="site-title">
+                <a href="{% url 'home' %}" title="Go to Home">A</a>
+            </div>
+        </div><!-- /logo -->
+
+
+        <nav id="nav" role="navigation">
+            <div class="table">
+                <div class="table-cell">
+                    <ul id="menu-menu-1">
+                        <li class="menu-item">
+                            <a href="{% url 'home' %}">Home</a></li>
+                        <li class="menu-item">
+                            <a href="{% url 'about' %}">About me</a></li>
+                        <!-- <li class="menu-item">
+                            <a href="#">Dropdown</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item">
+                                    <a href="#">Cute</a></li>
+                                <li class="menu-item">
+                                    <a href="#">Fun</a></li>
+                                <li class="menu-item">
+                                    <a href="#">Fitness</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li class="menu-item">
+                            <a href="{% url 'articles:list' %}">Blog</a>
+                            <!-- <ul class="sub-menu">
+                                <li class="menu-item">
+                                    <a href="single.html">Single</a></li>
+                            </ul> -->
+                        </li>
+                        <!-- <li class="menu-item">
+                            <a href="typography.html">Typography</a></li> -->
+                        <li class="menu-item">
+                            <a href="{% url 'contact' %}">Contact me</a></li>
+                        <li class="menu-inline menu-item">
+                            <a title="Twitter" href="http://twitter.com/">
+                                <i class="fa fa-twitter"></i><span class="i">Twitter</span>
+                            </a></li>
+                        <li class="menu-inline menu-item">
+                            <a title="Facebook" href="http://www.facebook.com/">
+                                <i class="fa fa-facebook"></i><span class="i">Facebook</span>
+                            </a></li>
+                        <li class="menu-inline menu-item">
+                            <a title="Whatsapp" href="#"><i class="fa fa-whatsapp"></i><span class="i">Whatsapp</span></a>
+                        </li>
+                        <li class="menu-inline menu-item">
+                            <a title="Instagram" href="https://www.instagram.com/">
+                                <i class="fa fa-instagram"></i><span class="i">Instagram</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- <a href="#nav" class="menu-trigger"><i class="fa fa-bars"></i></a> -->
+
+        <!-- <a href="#topsearch" class="search-trigger"><i class="fa fa-search"></i></a> -->
+
+    </div>
+
+</header>
